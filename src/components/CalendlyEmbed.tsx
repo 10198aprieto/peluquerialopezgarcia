@@ -1,7 +1,3 @@
-import { useEffect, useRef, useState } from "react";
-
-const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
-
 interface CalendlyEmbedProps {
   url: string;
   className?: string;
@@ -9,50 +5,17 @@ interface CalendlyEmbedProps {
 }
 
 export function CalendlyEmbed({ url, className = "", minHeight = 700 }: CalendlyEmbedProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const existing = document.getElementById("calendly-script") as HTMLScriptElement | null;
-    if (existing) {
-      if (existing.dataset["loaded"] === "true") {
-        setScriptLoaded(true);
-      } else {
-        existing.addEventListener("load", () => setScriptLoaded(true), { once: true });
-      }
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = "calendly-script";
-    script.src = CALENDLY_SCRIPT;
-    script.async = true;
-    script.dataset["loaded"] = "false";
-    script.addEventListener("load", () => {
-      script.dataset["loaded"] = "true";
-      setScriptLoaded(true);
-    });
-    document.body.appendChild(script);
-  }, []);
-
-  useEffect(() => {
-    if (!scriptLoaded || !containerRef.current || !window.Calendly) return;
-
-    // Clear any previously rendered content to avoid duplicates on re-renders
-    containerRef.current.innerHTML = "";
-    window.Calendly.initInlineWidget({
-      url,
-      parentElement: containerRef.current,
-    });
-  }, [scriptLoaded, url]);
+  const embedUrl = `${url}?embed_domain=${encodeURIComponent(typeof window !== "undefined" ? window.location.host : "peluquerialopezgarcia.lovable.app")}&embed_type=Inline`;
 
   return (
-    <div
-      ref={containerRef}
-      className={`calendly-inline-widget ${className}`}
-      style={{ minWidth: 320, width: "100%", minHeight }}
-    />
+    <div className={`w-full ${className}`} style={{ minHeight }}>
+      <iframe
+        src={embedUrl}
+        title="Reservar cita online"
+        className="w-full rounded-2xl border-0 bg-white"
+        style={{ minHeight, height: "100%" }}
+        loading="lazy"
+      />
+    </div>
   );
 }
