@@ -41,13 +41,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Peluquería de barrio en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Calle Delicias 17. Pide cita: 983 08 27 85.",
+          "Peluquería de barrio en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Reserva cita online o por teléfono. Calle Delicias 17.",
       },
       { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
       {
         property: "og:description",
         content:
-          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Calle Delicias 17, Valladolid.",
+          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Reserva cita online. Calle Delicias 17, Valladolid.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
