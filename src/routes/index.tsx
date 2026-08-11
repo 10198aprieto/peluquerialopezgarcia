@@ -128,14 +128,13 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+            <CalendlyButton
+              url={CALENDLY}
               className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
+              ariaLabel="Reservar cita online"
             >
-              Pedir cita
-            </a>
+              Reservar cita
+            </CalendlyButton>
           </nav>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -157,14 +156,13 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 block rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
+            <CalendlyButton
+              url={CALENDLY}
+              className="mt-3 block w-full rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
+              ariaLabel="Reservar cita online"
             >
-              Pedir cita
-            </a>
+              Reservar cita
+            </CalendlyButton>
           </nav>
         )}
       </header>
@@ -192,19 +190,20 @@ function Index() {
               la calle Delicias, 17.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              <CalendlyButton
+                url={CALENDLY}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+                ariaLabel="Reservar cita online"
+              >
+                <Calendar className="h-4 w-4" /> Reservar cita online
+              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
-              </a>
-              <a
-                href="#servicios"
-                className="inline-flex items-center rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-              >
-                Ver servicios
               </a>
             </div>
           </Reveal>
