@@ -377,6 +377,25 @@ function Index() {
         </div>
       </section>
 
+      {/* Reserva online */}
+      <section id="reserva" className="py-20 lg:py-28">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Reserva online</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Elige día y hora para tu cita
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Selecciona el servicio que necesitas y reserva directamente. Si prefieres, también
+              puedes escribirnos por WhatsApp.
+            </p>
+          </Reveal>
+          <Reveal className="mt-10">
+            <CalendlyEmbed url={CALENDLY} minHeight={720} className="rounded-sm border border-border" />
+          </Reveal>
+        </div>
+      </section>
+
       {/* Contacto / Footer */}
       <footer id="contacto" className="bg-primary py-20 text-primary-foreground lg:py-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
@@ -385,17 +404,18 @@ function Index() {
               ¿Nos vemos esta semana?
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="tel:+34983082785"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
+              <CalendlyButton
+                url={CALENDLY}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
+                ariaLabel="Reservar cita online"
               >
-                <Phone className="h-4 w-4" /> 983 08 27 85
-              </a>
+                <Calendar className="h-4 w-4" /> Reservar cita online
+              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
               </a>
@@ -449,16 +469,14 @@ function Index() {
         </div>
       </footer>
 
-      {/* WhatsApp flotante */}
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Pedir cita por WhatsApp"
+      {/* Botón flotante de reserva */}
+      <CalendlyButton
+        url={CALENDLY}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)] lg:hidden"
+        ariaLabel="Reservar cita online"
       >
-        <MessageCircle className="h-6 w-6" />
-      </a>
+        <Calendar className="h-6 w-6" />
+      </CalendlyButton>
     </div>
   );
 }
