@@ -2,19 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: {
-        url: string;
-        parentElement?: HTMLElement;
-        prefill?: Record<string, string>;
-      }) => void;
-      initPopupWidget: (options: { url: string; prefill?: Record<string, string> }) => void;
-    };
-  }
-}
-
 interface CalendlyEmbedProps {
   url: string;
   className?: string;
@@ -30,7 +17,7 @@ export function CalendlyEmbed({ url, className = "", minHeight = 700 }: Calendly
 
     const existing = document.getElementById("calendly-script") as HTMLScriptElement | null;
     if (existing) {
-      if (existing.dataset.loaded === "true") {
+      if (existing.dataset["loaded"] === "true") {
         setScriptLoaded(true);
       } else {
         existing.addEventListener("load", () => setScriptLoaded(true), { once: true });
@@ -42,9 +29,9 @@ export function CalendlyEmbed({ url, className = "", minHeight = 700 }: Calendly
     script.id = "calendly-script";
     script.src = CALENDLY_SCRIPT;
     script.async = true;
-    script.dataset.loaded = "false";
+    script.dataset["loaded"] = "false";
     script.addEventListener("load", () => {
-      script.dataset.loaded = "true";
+      script.dataset["loaded"] = "true";
       setScriptLoaded(true);
     });
     document.body.appendChild(script);

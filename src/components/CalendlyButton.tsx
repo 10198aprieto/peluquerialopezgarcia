@@ -2,14 +2,6 @@ import { useEffect, useRef } from "react";
 
 const CALENDLY_SCRIPT = "https://assets.calendly.com/assets/external/widget.js";
 
-declare global {
-  interface Window {
-    Calendly?: {
-      initPopupWidget: (options: { url: string; prefill?: Record<string, string> }) => void;
-    };
-  }
-}
-
 interface CalendlyButtonProps {
   url: string;
   children: React.ReactNode;
