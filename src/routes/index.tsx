@@ -15,13 +15,17 @@ import {
   Menu,
   X,
   MessageCircle,
+  Calendar,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { CalendlyButton } from "@/components/CalendlyButton";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import logo from "@/assets/logo.asset.json";
 import sala from "@/assets/sala.asset.json";
 import recepcion from "@/assets/recepcion.asset.json";
 import lavado from "@/assets/lavado.asset.json";
 
+const CALENDLY = "https://calendly.com/raccoonarroyobus/30min";
 const WHATSAPP =
   "https://wa.me/34983082785?text=" +
   encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
@@ -37,13 +41,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Peluquería de barrio en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Calle Delicias 17. Pide cita: 983 08 27 85.",
+          "Peluquería de barrio en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Reserva cita online o por teléfono. Calle Delicias 17.",
       },
       { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
       {
         property: "og:description",
         content:
-          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Calle Delicias 17, Valladolid.",
+          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Reserva cita online. Calle Delicias 17, Valladolid.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -77,6 +81,7 @@ const NAV = [
   { label: "Servicios", href: "#servicios" },
   { label: "Nuestro trabajo", href: "#trabajo" },
   { label: "Cómo llegar", href: "#ubicacion" },
+  { label: "Reservar", href: "#reserva" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -124,14 +129,13 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+            <CalendlyButton
+              url={CALENDLY}
               className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
+              ariaLabel="Reservar cita online"
             >
-              Pedir cita
-            </a>
+              Reservar cita
+            </CalendlyButton>
           </nav>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -153,14 +157,13 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-3 block rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
+            <CalendlyButton
+              url={CALENDLY}
+              className="mt-3 block w-full rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
+              ariaLabel="Reservar cita online"
             >
-              Pedir cita
-            </a>
+              Reservar cita
+            </CalendlyButton>
           </nav>
         )}
       </header>
@@ -188,19 +191,20 @@ function Index() {
               la calle Delicias, 17.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              <CalendlyButton
+                url={CALENDLY}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+                ariaLabel="Reservar cita online"
+              >
+                <Calendar className="h-4 w-4" /> Reservar cita online
+              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
-              </a>
-              <a
-                href="#servicios"
-                className="inline-flex items-center rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
-              >
-                Ver servicios
               </a>
             </div>
           </Reveal>
@@ -374,6 +378,25 @@ function Index() {
         </div>
       </section>
 
+      {/* Reserva online */}
+      <section id="reserva" className="py-20 lg:py-28">
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Reserva online</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Elige día y hora para tu cita
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Selecciona el servicio que necesitas y reserva directamente. Si prefieres, también
+              puedes escribirnos por WhatsApp.
+            </p>
+          </Reveal>
+          <Reveal className="mt-10">
+            <CalendlyEmbed url={CALENDLY} minHeight={720} className="rounded-sm border border-border" />
+          </Reveal>
+        </div>
+      </section>
+
       {/* Contacto / Footer */}
       <footer id="contacto" className="bg-primary py-20 text-primary-foreground lg:py-24">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
@@ -382,17 +405,18 @@ function Index() {
               ¿Nos vemos esta semana?
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="tel:+34983082785"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
+              <CalendlyButton
+                url={CALENDLY}
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
+                ariaLabel="Reservar cita online"
               >
-                <Phone className="h-4 w-4" /> 983 08 27 85
-              </a>
+                <Calendar className="h-4 w-4" /> Reservar cita online
+              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
               </a>
@@ -446,16 +470,14 @@ function Index() {
         </div>
       </footer>
 
-      {/* WhatsApp flotante */}
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Pedir cita por WhatsApp"
+      {/* Botón flotante de reserva */}
+      <CalendlyButton
+        url={CALENDLY}
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)] lg:hidden"
+        ariaLabel="Reservar cita online"
       >
-        <MessageCircle className="h-6 w-6" />
-      </a>
+        <Calendar className="h-6 w-6" />
+      </CalendlyButton>
     </div>
   );
 }
