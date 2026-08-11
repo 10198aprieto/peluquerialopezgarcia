@@ -15,13 +15,17 @@ import {
   Menu,
   X,
   MessageCircle,
+  Calendar,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { CalendlyButton } from "@/components/CalendlyButton";
+import { CalendlyEmbed } from "@/components/CalendlyEmbed";
 import logo from "@/assets/logo.asset.json";
 import sala from "@/assets/sala.asset.json";
 import recepcion from "@/assets/recepcion.asset.json";
 import lavado from "@/assets/lavado.asset.json";
 
+const CALENDLY = "https://calendly.com/raccoonarroyobus/30min";
 const WHATSAPP =
   "https://wa.me/34983082785?text=" +
   encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
