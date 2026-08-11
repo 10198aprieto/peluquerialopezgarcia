@@ -83,7 +83,7 @@ const NAV = [
 const SERVICIOS = [
   { icon: Scissors, name: "Corte y peinado", desc: "Cortes de mujer, hombre y niños adaptados a tu pelo y a tu día a día." },
   { icon: Palette, name: "Color y mechas", desc: "Coloración, balayage, babylights y retoque de raíz con acabado natural." },
-  { icon: Sparkles, name: "Tratamientos capilares", desc: "Hidratación, keratina y cuidado del cuero cabelludo con producto profesional." },
+  { icon: Sparkles, name: "Tratamientos capilares", desc: "Hidratación, keratina y cuidado del cuero cabelludo con productos Cotril." },
   { icon: Wind, name: "Alisados y ondas", desc: "Alisado progresivo, permanente moderna y ondas suaves de larga duración." },
   { icon: Crown, name: "Recogidos y eventos", desc: "Peinados para bodas, comuniones y celebraciones, con o sin prueba previa." },
   { icon: Baby, name: "Peluquería infantil", desc: "Primeros cortes tranquilos y con paciencia. Los peques, encantados." },
@@ -184,8 +184,8 @@ function Index() {
               <em className="text-accent-soft">resultados de verdad</em>
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary-foreground/85 sm:text-lg">
-              Cortamos, cuidamos y aconsejamos con el trato de siempre y las técnicas de hoy. Te
-              esperamos en la calle Delicias, 17.
+              13 años cortando, cuidando y aconsejando en Las Delicias. Siempre con cita previa, en
+              la calle Delicias, 17.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -216,19 +216,20 @@ function Index() {
               El salón de siempre, con la mirada puesta en hoy
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Llevamos años peinando a las familias de Las Delicias. Aquí nos sabemos tu nombre, el
+              Llevamos 13 años peinando a las familias de Las Delicias. Aquí nos sabemos tu nombre, el
               de tus hijos y cómo te gusta el flequillo. Ese trato cercano es lo que más nos importa.
             </p>
             <p className="mt-4 text-muted-foreground">
               Y porque el pelo cambia, nos formamos cada año en color, técnicas de mechas y
-              tratamientos, y trabajamos con producto profesional para que salgas por la puerta con
-              un resultado que dure.
+              tratamientos, y trabajamos con producto profesional Cotril para que salgas por la puerta
+              con un resultado que dure. Atendemos siempre con cita previa, para dedicarte todo
+              el tiempo que necesitas.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
               {[
-                ["+20", "años en el barrio"],
-                ["100%", "producto profesional"],
-                ["Cita", "previa o sin ella"],
+                ["13", "años en el barrio"],
+                ["Cotril", "producto profesional"],
+                ["Cita", "siempre previa"],
               ].map(([k, v]) => (
                 <div key={v}>
                   <dt className="font-display text-2xl text-accent sm:text-3xl">{k}</dt>
