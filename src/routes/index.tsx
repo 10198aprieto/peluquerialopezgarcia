@@ -81,6 +81,7 @@ const NAV = [
   { label: "Servicios", href: "#servicios" },
   { label: "Nuestro trabajo", href: "#trabajo" },
   { label: "Cómo llegar", href: "#ubicacion" },
+  { label: "Reservar", href: "#reserva" },
   { label: "Contacto", href: "#contacto" },
 ];
 
