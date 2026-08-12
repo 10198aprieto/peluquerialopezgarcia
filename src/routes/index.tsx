@@ -18,6 +18,9 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { Link } from "@tanstack/react-router";
+
 import logo from "@/assets/logo-text.asset.json";
 import logoMark from "@/assets/logo-mark.asset.json";
 import sala from "@/assets/sala.asset.json";
@@ -294,14 +297,24 @@ function Index() {
 
       {/* Nuestro trabajo */}
       <section id="trabajo" className="py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <Reveal className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestro trabajo</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-              El salón y lo que sale de él
-            </h2>
-          </Reveal>
-        </div>
+        <ContainerScroll
+          titleComponent={
+            <div className="mb-6">
+              <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestro trabajo</p>
+              <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+                El salón y lo que sale de él
+              </h2>
+            </div>
+          }
+        >
+          <img
+            src={sala.url}
+            alt="Sala de peinado de Peluquería López García"
+            loading="lazy"
+            className="h-full w-full rounded-2xl object-cover"
+          />
+        </ContainerScroll>
+
         <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 lg:px-8">
           <div className="hidden shrink-0 lg:block lg:w-[calc((100vw-72rem)/2)]" />
           {TRABAJOS.map((t) => (
@@ -460,9 +473,21 @@ function Index() {
               </div>
             </div>
           </div>
-          <p className="mt-10 text-xs text-primary-foreground/50">
-            © {new Date().getFullYear()} Peluquería López García · Las Delicias, Valladolid
-          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-primary-foreground/50">
+            <p>
+              © {new Date().getFullYear()} Peluquería López García · Las Delicias, Valladolid
+            </p>
+            <Link to="/aviso-legal" className="underline transition-colors hover:text-primary-foreground">
+              Aviso legal
+            </Link>
+            <Link
+              to="/politica-privacidad"
+              className="underline transition-colors hover:text-primary-foreground"
+            >
+              Política de privacidad
+            </Link>
+          </div>
+
         </div>
       </footer>
 
