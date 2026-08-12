@@ -88,7 +88,7 @@ const NAV = [
 ];
 
 const SERVICIOS = [
-  { icon: Scissors, name: "Corte y peinado", desc: "Cortes de mujer y hombre, adaptados to tu pelo y a tu día a día." },
+  { icon: Scissors, name: "Corte y peinado", desc: "Cortes de mujer y hombre, adaptados a tu pelo y a tu día a día." },
   { icon: Palette, name: "Color y mechas", desc: "Coloración, balayage, babylights y retoque de raíz con acabado natural." },
   { icon: Sparkles, name: "Tratamientos capilares", desc: "Hidratación, keratina y cuidado del cuero cabelludo con productos Cotril." },
   { icon: Wind, name: "Alisados y ondas", desc: "Alisado progresivo, permanente moderna y ondas suaves de larga duración." },
