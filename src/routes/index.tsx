@@ -7,7 +7,6 @@ import {
   Wind,
   Crown,
   Baby,
-  Phone,
   MapPin,
   Clock,
   Instagram,
@@ -15,17 +14,17 @@ import {
   Menu,
   X,
   MessageCircle,
-  Calendar,
+  Phone,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { CalendlyButton } from "@/components/CalendlyButton";
-import { CalendlyEmbed } from "@/components/CalendlyEmbed";
-import logo from "@/assets/logo.asset.json";
+import { GoogleReviews } from "@/components/GoogleReviews";
+import logo from "@/assets/logo-text.asset.json";
+import logoMark from "@/assets/logo-mark.asset.json";
 import sala from "@/assets/sala.asset.json";
 import recepcion from "@/assets/recepcion.asset.json";
 import lavado from "@/assets/lavado.asset.json";
 
-const CALENDLY = "https://calendly.com/raccoonarroyobus/30min";
+const PHONE = "+34983082785";
 const WHATSAPP =
   "https://wa.me/34983082785?text=" +
   encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
@@ -41,13 +40,13 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Peluquería de barrio en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Reserva cita online o por teléfono. Calle Delicias 17.",
+          "Peluquería de familia en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Pide cita por teléfono o WhatsApp. Calle Delicias 17.",
       },
       { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
       {
         property: "og:description",
         content:
-          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Reserva cita online. Calle Delicias 17, Valladolid.",
+          "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Peluquería de familia, para tu familia. Calle Delicias 17, Valladolid.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -80,8 +79,8 @@ const NAV = [
   { label: "Inicio", href: "#inicio" },
   { label: "Servicios", href: "#servicios" },
   { label: "Nuestro trabajo", href: "#trabajo" },
+  { label: "Reseñas", href: "#resenas" },
   { label: "Cómo llegar", href: "#ubicacion" },
-  { label: "Reservar", href: "#reserva" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -117,7 +116,7 @@ function Index() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3 lg:px-8">
           <a href="#inicio" className="flex min-w-0 items-center">
-            <img src={logo.url} alt="Peluquería López García" className="h-9 w-auto sm:h-11" />
+            <img src={logo.url} alt="Peluquería López García" className="h-8 w-auto sm:h-10" />
           </a>
           <nav className="hidden items-center gap-7 lg:flex">
             {NAV.map((n) => (
@@ -129,13 +128,14 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <CalendlyButton
-              url={CALENDLY}
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
-              ariaLabel="Reservar cita online"
             >
-              Reservar cita
-            </CalendlyButton>
+              Pedir cita
+            </a>
           </nav>
           <button
             onClick={() => setOpen((v) => !v)}
@@ -157,13 +157,14 @@ function Index() {
                 {n.label}
               </a>
             ))}
-            <CalendlyButton
-              url={CALENDLY}
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
               className="mt-3 block w-full rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
-              ariaLabel="Reservar cita online"
             >
-              Reservar cita
-            </CalendlyButton>
+              Pedir cita
+            </a>
           </nav>
         )}
       </header>
@@ -175,36 +176,41 @@ function Index() {
           alt="Interior de Peluquería López García en Las Delicias, Valladolid"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/55 to-primary/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/60 to-primary/30" />
+        <img
+          src={logoMark.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-16 top-24 w-[38rem] max-w-none opacity-[0.07] invert lg:right-0"
+        />
         <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 lg:px-8 lg:pb-24">
           <Reveal>
             <p className="mb-4 text-xs uppercase tracking-[0.35em] text-primary-foreground/80">
               Las Delicias · Valladolid
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] text-primary-foreground sm:text-6xl lg:text-7xl">
-              Peluquería de barrio,
+              Peluquería de familia,
               <br />
-              <em className="text-accent-soft">resultados de verdad</em>
+              <em className="text-accent-soft">para tu familia</em>
             </h1>
             <p className="mt-5 max-w-xl text-base text-primary-foreground/85 sm:text-lg">
               13 años cortando, cuidando y aconsejando en Las Delicias. Siempre con cita previa, en
               la calle Delicias, 17.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CalendlyButton
-                url={CALENDLY}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
-                ariaLabel="Reservar cita online"
-              >
-                <Calendar className="h-4 w-4" /> Reservar cita online
-              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+              </a>
+              <a
+                href={`tel:${PHONE}`}
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
+              >
+                <Phone className="h-4 w-4" /> 983 08 27 85
               </a>
             </div>
           </Reveal>
@@ -261,7 +267,7 @@ function Index() {
       </section>
 
       {/* Servicios */}
-      <section id="servicios" className="bg-secondary/60 py-20 lg:py-28">
+      <section id="servicios" className="bg-secondary py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
           <Reveal className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Servicios</p>
@@ -331,8 +337,11 @@ function Index() {
         </div>
       </section>
 
+      {/* Reseñas de Google */}
+      <GoogleReviews />
+
       {/* Horario y ubicación */}
-      <section id="ubicacion" className="bg-secondary/60 py-20 lg:py-28">
+      <section id="ubicacion" className="py-20 lg:py-28">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 lg:grid-cols-2 lg:gap-16 lg:px-8">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Horario y ubicación</p>
@@ -379,47 +388,33 @@ function Index() {
         </div>
       </section>
 
-      {/* Reserva online */}
-      <section id="reserva" className="py-20 lg:py-28">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
-          <Reveal className="max-w-2xl">
-            <p className="text-xs uppercase tracking-[0.3em] text-accent">Reserva online</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-              Elige día y hora para tu cita
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              Selecciona el servicio que necesitas y reserva directamente. Si prefieres, también
-              puedes escribirnos por WhatsApp.
-            </p>
-          </Reveal>
-          <Reveal className="mt-10">
-            <CalendlyEmbed url={CALENDLY} minHeight={720} className="rounded-sm border border-border" />
-          </Reveal>
-        </div>
-      </section>
-
       {/* Contacto / Footer */}
-      <footer id="contacto" className="bg-primary py-20 text-primary-foreground lg:py-24">
-        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+      <footer id="contacto" className="relative overflow-hidden bg-primary py-20 text-primary-foreground lg:py-24">
+        <img
+          src={logoMark.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 bottom-0 w-[34rem] max-w-none opacity-[0.06] invert"
+        />
+        <div className="relative mx-auto max-w-6xl px-4 lg:px-8">
           <Reveal>
             <h2 className="max-w-2xl font-display text-3xl leading-tight sm:text-5xl">
               ¿Nos vemos esta semana?
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
-              <CalendlyButton
-                url={CALENDLY}
-                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
-                ariaLabel="Reservar cita online"
-              >
-                <Calendar className="h-4 w-4" /> Reservar cita online
-              </CalendlyButton>
               <a
                 href={WHATSAPP}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
+                className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
               >
                 <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+              </a>
+              <a
+                href={`tel:${PHONE}`}
+                className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium transition-colors hover:bg-primary-foreground/10"
+              >
+                <Phone className="h-4 w-4" /> 983 08 27 85
               </a>
             </div>
           </Reveal>
@@ -471,14 +466,16 @@ function Index() {
         </div>
       </footer>
 
-      {/* Botón flotante de reserva */}
-      <CalendlyButton
-        url={CALENDLY}
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href={WHATSAPP}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Pedir cita por WhatsApp"
         className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)] lg:hidden"
-        ariaLabel="Reservar cita online"
       >
-        <Calendar className="h-6 w-6" />
-      </CalendlyButton>
+        <MessageCircle className="h-6 w-6" />
+      </a>
     </div>
   );
 }
