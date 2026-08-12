@@ -88,7 +88,7 @@ const NAV = [
 ];
 
 const SERVICIOS = [
-  { icon: Scissors, name: "Corte y peinado", desc: "Cortes de mujer, hombre y niños adaptados a tu pelo y a tu día a día." },
+  { icon: Scissors, name: "Corte y peinado", desc: "Cortes de mujer y hombre, adaptados a tu pelo y a tu día a día." },
   { icon: Palette, name: "Color y mechas", desc: "Coloración, balayage, babylights y retoque de raíz con acabado natural." },
   { icon: Sparkles, name: "Tratamientos capilares", desc: "Hidratación, keratina y cuidado del cuero cabelludo con productos Cotril." },
   { icon: Wind, name: "Alisados y ondas", desc: "Alisado progresivo, permanente moderna y ondas suaves de larga duración." },
@@ -105,9 +105,9 @@ const HORARIO = [
 ];
 
 const TRABAJOS = [
-  { src: sala.url, alt: "Sala de peinado de Peluquería López García" },
+  { src: sala.url, alt: "ESPACIO DE PEINADO Y CORTE" },
   { src: lavado.url, alt: "Zona de lavado y productos profesionales" },
-  { src: recepcion.url, alt: "Recepción del salón en Las Delicias" },
+  { src: recepcion.url, alt: "RECEPCIÓN DE LA PELUQUERÍA" },
 ];
 
 function Index() {
@@ -189,7 +189,7 @@ function Index() {
         <div className="relative mx-auto w-full max-w-6xl px-4 pb-16 lg:px-8 lg:pb-24">
           <Reveal>
             <p className="mb-4 text-xs uppercase tracking-[0.35em] text-primary-foreground/80">
-              Las Delicias · Valladolid
+              BARRIO DE LAS DELICIAS · VALLADOLID
             </p>
             <h1 className="max-w-3xl font-display text-4xl leading-[1.05] text-primary-foreground sm:text-6xl lg:text-7xl">
               Peluquería de familia,
@@ -226,12 +226,12 @@ function Index() {
           <Reveal>
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Sobre nosotros</p>
             <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-              El salón de siempre, con la mirada puesta en hoy
+              La peluquería de siempre, con la mirada puesta en hoy
             </h2>
             <p className="mt-6 text-muted-foreground">
               Desde el 11 de mayo de 2013, Peluquería López García forma parte del día a día de Las
               Delicias. Más de una década después, seguimos siendo el sitio de siempre para cuidar tu
-              pelo: sin prisa, sin protocolos fríos, con el trato cercano de quien te conoce por tu nombre.
+              pelo: sin prisa, y con el trato cercano de quien te conoce por tu nombre.
             </p>
             <p className="mt-4 text-muted-foreground">
               El barrio ha cambiado mucho en estos años, pero nosotras hemos seguido aquí, con la puerta
@@ -286,7 +286,7 @@ function Index() {
                   <h3 className="mt-5 font-display text-2xl">{s.name}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                   <p className="mt-5 text-xs uppercase tracking-widest text-accent">
-                    Precio · Consultar
+                    PRECIO · POR DEFINIR
                   </p>
                 </article>
               </Reveal>
@@ -302,7 +302,7 @@ function Index() {
             <div className="mb-6">
               <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestro trabajo</p>
               <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-                El salón y lo que sale de él
+                La peluquería y lo que sale de ella
               </h2>
             </div>
           }
@@ -343,7 +343,7 @@ function Index() {
             <div>
               <p className="font-display text-3xl leading-tight">@peluquerialopezgarcia</p>
               <p className="mt-2 text-sm opacity-80">
-                Mira nuestros últimos trabajos en Instagram →
+                Mira nuestros últimos posts en Instagram →
               </p>
             </div>
           </a>
