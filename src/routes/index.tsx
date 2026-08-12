@@ -18,6 +18,9 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { Link } from "@tanstack/react-router";
+
 import logo from "@/assets/logo-text.asset.json";
 import logoMark from "@/assets/logo-mark.asset.json";
 import sala from "@/assets/sala.asset.json";
@@ -470,9 +473,21 @@ function Index() {
               </div>
             </div>
           </div>
-          <p className="mt-10 text-xs text-primary-foreground/50">
-            © {new Date().getFullYear()} Peluquería López García · Las Delicias, Valladolid
-          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-primary-foreground/50">
+            <p>
+              © {new Date().getFullYear()} Peluquería López García · Las Delicias, Valladolid
+            </p>
+            <Link to="/aviso-legal" className="underline transition-colors hover:text-primary-foreground">
+              Aviso legal
+            </Link>
+            <Link
+              to="/politica-privacidad"
+              className="underline transition-colors hover:text-primary-foreground"
+            >
+              Política de privacidad
+            </Link>
+          </div>
+
         </div>
       </footer>
 
