@@ -297,23 +297,14 @@ function Index() {
 
       {/* Nuestro trabajo */}
       <section id="trabajo" className="py-20 lg:py-28">
-        <ContainerScroll
-          titleComponent={
-            <div className="mb-6">
-              <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestro trabajo</p>
-              <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-                La peluquería y lo que sale de ella
-              </h2>
-            </div>
-          }
-        >
-          <img
-            src={sala.url}
-            alt="Sala de peinado de Peluquería López García"
-            loading="lazy"
-            className="h-full w-full rounded-2xl object-cover"
-          />
-        </ContainerScroll>
+        <div className="mx-auto max-w-6xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestro trabajo</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              La peluquería y lo que sale de ella
+            </h2>
+          </Reveal>
+        </div>
 
         <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 lg:px-8">
           <div className="hidden shrink-0 lg:block lg:w-[calc((100vw-72rem)/2)]" />
