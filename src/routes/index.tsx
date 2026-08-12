@@ -220,14 +220,15 @@ function Index() {
               El salón de siempre, con la mirada puesta en hoy
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Llevamos 13 años peinando a las familias de Las Delicias. Aquí nos sabemos tu nombre, el
-              de tus hijos y cómo te gusta el flequillo. Ese trato cercano es lo que más nos importa.
+              Desde el 11 de mayo de 2013, Peluquería López García forma parte del día a día de Las
+              Delicias. Más de una década después, seguimos siendo el sitio de siempre para cuidar tu
+              pelo: sin prisa, sin protocolos fríos, con el trato cercano de quien te conoce por tu nombre.
             </p>
             <p className="mt-4 text-muted-foreground">
-              Y porque el pelo cambia, nos formamos cada año en color, técnicas de mechas y
-              tratamientos, y trabajamos con producto profesional Cotril para que salgas por la puerta
-              con un resultado que dure. Atendemos siempre con cita previa, para dedicarte todo
-              el tiempo que necesitas.
+              El barrio ha cambiado mucho en estos años, pero nosotras hemos seguido aquí, con la puerta
+              abierta para quien entra por primera vez y para quien lleva viniendo desde el principio.
+              Muchas de las que empezaron en 2013 siguen viniendo hoy, y esa es la mejor carta de
+              presentación que podemos darte.
             </p>
             <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-border pt-6">
               {[
