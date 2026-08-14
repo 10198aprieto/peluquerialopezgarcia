@@ -19,7 +19,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+
 import { Link } from "@tanstack/react-router";
 
 const logo = { url: "/images/logo-text.png" };
