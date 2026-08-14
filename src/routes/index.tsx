@@ -32,8 +32,36 @@ const WHATSAPP =
   "https://wa.me/34983082785?text=" +
   encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
 const MAPS =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("Calle Delicias 17, 47013 Valladolid");
+  "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid&travelmode=driving";
+const MAPS_DEST =
+  "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid";
+
+const COMO_LLEGAR = [
+  {
+    emoji: "🚶",
+    title: "Cómo llegar andando",
+    desc: "Ruta a pie hasta la puerta del salón.",
+    href: `${MAPS_DEST}&travelmode=walking`,
+  },
+  {
+    emoji: "🚌",
+    title: "Autobús",
+    desc: "Líneas urbanas con parada en la calle Delicias.",
+    href: `${MAPS_DEST}&travelmode=transit`,
+  },
+  {
+    emoji: "🚗",
+    title: "Cómo llegar en coche",
+    desc: "Indicaciones en coche desde donde estés.",
+    href: `${MAPS_DEST}&travelmode=driving`,
+  },
+];
+
+const APARCAMIENTOS = [
+  { name: "Aparcamiento cercano 1", time: "11 min andando (estimado)", href: "https://maps.app.goo.gl/iyGPcR9QjWUQ8PqN6" },
+  { name: "Aparcamiento cercano 2", time: "9 min andando (estimado)", href: "https://maps.app.goo.gl/dK2QczcEpwDQpUWBA" },
+];
+
 
 export const Route = createFileRoute("/")({
   component: Index,
