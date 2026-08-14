@@ -551,16 +551,38 @@ function Index() {
         </div>
       </footer>
 
-      {/* Botón flotante de WhatsApp */}
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Pedir cita por WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)] lg:hidden"
-      >
-        <MessageCircle className="h-6 w-6" />
-      </a>
+      {/* Botón flotante de contacto */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 lg:hidden">
+        {fab && (
+          <>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setFab(false)}
+              className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
+            >
+              <MessageCircle className="h-5 w-5 text-accent" /> Enviar WhatsApp
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              onClick={() => setFab(false)}
+              className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
+            >
+              <Phone className="h-5 w-5 text-accent" /> Llamar por teléfono
+            </a>
+          </>
+        )}
+        <button
+          onClick={() => setFab((v) => !v)}
+          aria-expanded={fab}
+          aria-label={fab ? "Cerrar opciones de contacto" : "Abrir opciones de contacto"}
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
+        >
+          {fab ? <X className="h-6 w-6" /> : <CalendarPlus className="h-6 w-6" />}
+        </button>
+      </div>
+
     </div>
   );
 }
