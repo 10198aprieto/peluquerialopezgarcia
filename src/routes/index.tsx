@@ -15,6 +15,7 @@ import {
   X,
   MessageCircle,
   Phone,
+  CalendarPlus,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
@@ -140,6 +141,7 @@ const TRABAJOS = [
 
 function Index() {
   const [open, setOpen] = useState(false);
+  const [fab, setFab] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
