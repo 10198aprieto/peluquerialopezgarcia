@@ -15,8 +15,8 @@ import {
   X,
   MessageCircle,
   Phone,
-  CalendarPlus,
 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
