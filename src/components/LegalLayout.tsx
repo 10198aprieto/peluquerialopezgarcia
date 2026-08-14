@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
-import logo from "@/assets/logo-text.asset.json";
 
 export function P({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <p className={`mt-4 leading-relaxed text-muted-foreground ${className}`}>{children}</p>;
@@ -39,7 +38,7 @@ export function LegalLayout({
       <header className="border-b border-border">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 lg:px-8">
           <Link to="/" className="flex items-center">
-            <img src={logo.url} alt="Peluquería López García" className="h-8 w-auto" />
+            <img src="/images/logo-text.png" alt="Peluquería López García" className="h-8 w-auto" />
           </Link>
           <Link
             to="/"

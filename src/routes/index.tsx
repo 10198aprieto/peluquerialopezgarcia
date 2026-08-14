@@ -15,25 +15,54 @@ import {
   X,
   MessageCircle,
   Phone,
+  CalendarPlus,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Link } from "@tanstack/react-router";
 
-import logo from "@/assets/logo-text.asset.json";
-import logoMark from "@/assets/logo-mark.asset.json";
-import sala from "@/assets/sala.asset.json";
-import recepcion from "@/assets/recepcion.asset.json";
-import lavado from "@/assets/lavado.asset.json";
+const logo = { url: "/images/logo-text.png" };
+const logoMark = { url: "/images/logo-mark.png" };
+const sala = { url: "/images/sala.jpg" };
+const recepcion = { url: "/images/recepcion.jpg" };
+const lavado = { url: "/images/lavado.jpg" };
 
 const PHONE = "+34983082785";
 const WHATSAPP =
   "https://wa.me/34983082785?text=" +
   encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
 const MAPS =
-  "https://www.google.com/maps/dir/?api=1&destination=" +
-  encodeURIComponent("Calle Delicias 17, 47013 Valladolid");
+  "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid&travelmode=driving";
+const MAPS_DEST =
+  "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid";
+
+const COMO_LLEGAR = [
+  {
+    emoji: "🚶",
+    title: "Cómo llegar andando",
+    desc: "Ruta a pie hasta la puerta del salón.",
+    href: `${MAPS_DEST}&travelmode=walking`,
+  },
+  {
+    emoji: "🚌",
+    title: "Autobús",
+    desc: "Líneas urbanas con parada en la calle Delicias.",
+    href: `${MAPS_DEST}&travelmode=transit`,
+  },
+  {
+    emoji: "🚗",
+    title: "Cómo llegar en coche",
+    desc: "Indicaciones en coche desde donde estés.",
+    href: `${MAPS_DEST}&travelmode=driving`,
+  },
+];
+
+const APARCAMIENTOS = [
+  { name: "Aparcamiento cercano 1", time: "11 min andando (estimado)", href: "https://maps.app.goo.gl/iyGPcR9QjWUQ8PqN6" },
+  { name: "Aparcamiento cercano 2", time: "9 min andando (estimado)", href: "https://maps.app.goo.gl/dK2QczcEpwDQpUWBA" },
+];
+
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -112,6 +141,7 @@ const TRABAJOS = [
 
 function Index() {
   const [open, setOpen] = useState(false);
+  const [fab, setFab] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -390,6 +420,47 @@ function Index() {
             />
           </Reveal>
         </div>
+
+        <div className="mx-auto mt-12 max-w-6xl px-4 lg:px-8">
+          <Reveal>
+            <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
+              {COMO_LLEGAR.map((c) => (
+                <a
+                  key={c.title}
+                  href={c.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-card p-6 transition-colors hover:bg-accent-soft/40"
+                >
+                  <p className="text-2xl">{c.emoji}</p>
+                  <h3 className="mt-3 font-display text-xl">{c.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+                  <p className="mt-3 text-xs uppercase tracking-widest text-accent">Abrir en Google Maps →</p>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-sm border border-border bg-card p-6">
+              <h3 className="font-display text-xl">🅿️ Aparcamiento cercano</h3>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {APARCAMIENTOS.map((p) => (
+                  <li key={p.href}>
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between gap-4 rounded-sm border border-border px-4 py-3 text-sm transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <span>{p.name}</span>
+                      <span className="shrink-0 text-xs text-muted-foreground">{p.time}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
       </section>
 
       {/* Contacto / Footer */}
@@ -482,16 +553,38 @@ function Index() {
         </div>
       </footer>
 
-      {/* Botón flotante de WhatsApp */}
-      <a
-        href={WHATSAPP}
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Pedir cita por WhatsApp"
-        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)] lg:hidden"
-      >
-        <MessageCircle className="h-6 w-6" />
-      </a>
+      {/* Botón flotante de contacto */}
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3 lg:hidden">
+        {fab && (
+          <>
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setFab(false)}
+              className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
+            >
+              <MessageCircle className="h-5 w-5 text-accent" /> Enviar WhatsApp
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              onClick={() => setFab(false)}
+              className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
+            >
+              <Phone className="h-5 w-5 text-accent" /> Llamar por teléfono
+            </a>
+          </>
+        )}
+        <button
+          onClick={() => setFab((v) => !v)}
+          aria-expanded={fab}
+          aria-label={fab ? "Cerrar opciones de contacto" : "Abrir opciones de contacto"}
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
+        >
+          {fab ? <X className="h-6 w-6" /> : <CalendarPlus className="h-6 w-6" />}
+        </button>
+      </div>
+
     </div>
   );
 }
