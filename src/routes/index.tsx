@@ -21,11 +21,11 @@ import { GoogleReviews } from "@/components/GoogleReviews";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Link } from "@tanstack/react-router";
 
-import logo from "@/assets/logo-text.asset.json";
-import logoMark from "@/assets/logo-mark.asset.json";
-import sala from "@/assets/sala.asset.json";
-import recepcion from "@/assets/recepcion.asset.json";
-import lavado from "@/assets/lavado.asset.json";
+const logo = { url: "/images/logo-text.png" };
+const logoMark = { url: "/images/logo-mark.png" };
+const sala = { url: "/images/sala.jpg" };
+const recepcion = { url: "/images/recepcion.jpg" };
+const lavado = { url: "/images/lavado.jpg" };
 
 const PHONE = "+34983082785";
 const WHATSAPP =
