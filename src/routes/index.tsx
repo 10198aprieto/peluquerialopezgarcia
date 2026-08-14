@@ -418,6 +418,47 @@ function Index() {
             />
           </Reveal>
         </div>
+
+        <div className="mx-auto mt-12 max-w-6xl px-4 lg:px-8">
+          <Reveal>
+            <div className="grid gap-px overflow-hidden rounded-sm border border-border bg-border sm:grid-cols-3">
+              {COMO_LLEGAR.map((c) => (
+                <a
+                  key={c.title}
+                  href={c.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-card p-6 transition-colors hover:bg-accent-soft/40"
+                >
+                  <p className="text-2xl">{c.emoji}</p>
+                  <h3 className="mt-3 font-display text-xl">{c.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{c.desc}</p>
+                  <p className="mt-3 text-xs uppercase tracking-widest text-accent">Abrir en Google Maps →</p>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-sm border border-border bg-card p-6">
+              <h3 className="font-display text-xl">🅿️ Aparcamiento cercano</h3>
+              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                {APARCAMIENTOS.map((p) => (
+                  <li key={p.href}>
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex items-center justify-between gap-4 rounded-sm border border-border px-4 py-3 text-sm transition-colors hover:border-accent hover:text-accent"
+                    >
+                      <span>{p.name}</span>
+                      <span className="shrink-0 text-xs text-muted-foreground">{p.time}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
       </section>
 
       {/* Contacto / Footer */}
