@@ -70,7 +70,7 @@ const HISTORIA = [
     emoji: "📍",
     title: "Abrimos en Las Delicias",
     desc:
-      "El 11 de mayo de 2013 levantamos la persiana en la calle Delicias, 17. Dos sillones, muchas ganas y la idea de hacer una peluquería de barrio donde a cada clienta se la atiende por su nombre.",
+      "El 11 de mayo de 2013 levantamos la persiana en la calle Delicias, 17. Dos sillones, muchas ganas y la idea de hacer una peluquería donde a cada clienta se la atiende por su nombre.",
   },
   {
     year: "2018",
@@ -84,7 +84,7 @@ const HISTORIA = [
     emoji: "❤️",
     title: "10 años y nuestros clientes siguen confiando en nosotras",
     desc:
-      "Cumplimos una década con muchas de las personas que entraron por la puerta el primer año. Familias enteras: abuelas, madres, hijas y los peques con su primer corte.",
+      "Cumplimos una década con muchas de las personas que entraron por la puerta el primer año y que todavía confían en nosotras. Familias enteras: abuelas, madres, hijas y los peques con su primer corte.",
   },
   {
     year: "2026",
@@ -419,7 +419,7 @@ function Index() {
           <Reveal className="max-w-2xl">
             <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestra historia</p>
             <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
-              Más de una década en la misma esquina
+              Más de una década en la misma acera.
             </h2>
           </Reveal>
 
@@ -463,7 +463,7 @@ function Index() {
                   <h3 className="mt-5 font-display text-2xl">{s.name}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
                   <p className="mt-5 text-xs uppercase tracking-widest text-accent">
-                    PRECIO · POR DEFINIR
+                    {"\n"}
                   </p>
                 </article>
               </Reveal>
