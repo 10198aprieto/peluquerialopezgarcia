@@ -282,6 +282,11 @@ function Index() {
         </div>
       </section>
 
+      {/* Banner de reseñas de Google */}
+      <ReviewsBanner />
+
+
+
       {/* Sobre nosotros */}
       <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
