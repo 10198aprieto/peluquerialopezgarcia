@@ -657,6 +657,30 @@ function Index() {
 
       </section>
 
+      {/* Preguntas frecuentes */}
+      <section id="faq" className="bg-secondary py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Preguntas frecuentes</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Todo lo que sueles preguntarnos
+            </h2>
+          </Reveal>
+          <dl className="mt-10 divide-y divide-border border-y border-border">
+            {FAQ.map((f, i) => (
+              <Reveal key={f.q} delay={i * 50}>
+                <div className="py-6">
+                  <dt className="font-display text-xl leading-snug">{f.q}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</dd>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+
+
       {/* Contacto / Footer */}
       <footer id="contacto" className="relative overflow-hidden bg-primary py-20 text-primary-foreground lg:py-24">
         <img
