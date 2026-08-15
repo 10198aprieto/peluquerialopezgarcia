@@ -19,6 +19,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ReviewsBanner } from "@/components/ReviewsBanner";
 
 import { Link } from "@tanstack/react-router";
 
@@ -63,6 +64,40 @@ const APARCAMIENTOS = [
   { name: "Aparcamiento cercano 2", time: "9 min andando (estimado)", href: "https://maps.app.goo.gl/dK2QczcEpwDQpUWBA" },
 ];
 
+const HISTORIA = [
+  {
+    year: "2013",
+    emoji: "📍",
+    title: "Abrimos en Las Delicias",
+    desc:
+      "El 11 de mayo de 2013 levantamos la persiana en la calle Delicias, 17. Dos sillones, muchas ganas y la idea de hacer una peluquería de barrio donde a cada clienta se la atiende por su nombre.",
+  },
+  {
+    year: "2018",
+    emoji: "✂️",
+    title: "Seguimos creciendo junto al barrio",
+    desc:
+      "Cinco años después renovamos el salón y ampliamos servicios: color, mechas y tratamientos con producto profesional Cotril. Nos formamos cada temporada para que las técnicas nuevas también lleguen a Las Delicias.",
+  },
+  {
+    year: "2023",
+    emoji: "❤️",
+    title: "10 años y nuestros clientes siguen confiando en nosotras",
+    desc:
+      "Cumplimos una década con muchas de las personas que entraron por la puerta el primer año. Familias enteras: abuelas, madres, hijas y los peques con su primer corte.",
+  },
+  {
+    year: "2026",
+    emoji: "✨",
+    title: "Más de 13 años cuidando tu cabello",
+    desc:
+      "Hoy seguimos en el mismo sitio, siempre con cita previa para dedicarte todo el tiempo que necesitas, y con la misma idea del primer día: que salgas por la puerta contenta con tu pelo.",
+  },
+];
+
+
+
+const SITE = "https://peluquerialopezgarcia.lovable.app";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -72,8 +107,15 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Peluquería de familia en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Pide cita por teléfono o WhatsApp. Calle Delicias 17.",
+          "Peluquería en el barrio de Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con producto Cotril y trato cercano. Cita previa en el 983 08 27 85. Calle Delicias 17.",
       },
+      { name: "keywords", content: "peluquería Valladolid, peluquería Las Delicias, mechas Valladolid, color, corte de pelo, Cotril" },
+      { name: "geo.region", content: "ES-VA" },
+      { name: "geo.placename", content: "Valladolid" },
+      { name: "geo.position", content: "41.630;-4.734" },
+      { name: "ICBM", content: "41.630, -4.734" },
+      { property: "og:site_name", content: "Peluquería López García" },
+      { property: "og:locale", content: "es_ES" },
       { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
       {
         property: "og:description",
@@ -81,26 +123,85 @@ export const Route = createFileRoute("/")({
           "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Peluquería de familia, para tu familia. Calle Delicias 17, Valladolid.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE}/` },
+      { property: "og:image", content: `${SITE}/images/sala.jpg` },
+      { property: "og:image:alt", content: "Interior de Peluquería López García en Las Delicias, Valladolid" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Peluquería López García - Las Delicias, Valladolid" },
+      {
+        name: "twitter:description",
+        content: "Peluquería de familia en Las Delicias, Valladolid. Cita previa en el 983 08 27 85.",
+      },
+      { name: "twitter:image", content: `${SITE}/images/sala.jpg` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE}/` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HairSalon",
+          "@id": `${SITE}/#peluqueria`,
           name: "Peluquería López García",
+          description:
+            "Peluquería de barrio en Las Delicias (Valladolid) desde 2013. Corte, color, mechas, tratamientos y recogidos con producto profesional Cotril, siempre con cita previa.",
+          url: `${SITE}/`,
           telephone: "+34983082785",
+          image: [`${SITE}/images/sala.jpg`, `${SITE}/images/recepcion.jpg`],
+          logo: `${SITE}/images/logo-text.png`,
+          priceRange: "€€",
+          currenciesAccepted: "EUR",
+          foundingDate: "2013-05-11",
+          areaServed: { "@type": "City", name: "Valladolid" },
           address: {
             "@type": "PostalAddress",
             streetAddress: "Calle Delicias, 17",
             postalCode: "47013",
             addressLocality: "Valladolid",
+            addressRegion: "Valladolid",
             addressCountry: "ES",
           },
-          openingHours: ["Tu-Th 09:30-13:30", "Tu-Th 16:00-19:00", "Fr 09:00-19:00", "Sa 09:00-14:00"],
+          geo: { "@type": "GeoCoordinates", latitude: 41.63, longitude: -4.734 },
+          hasMap: MAPS_DEST,
+          sameAs: [
+            "https://www.instagram.com/peluquerialopezgarcia/",
+            "https://www.facebook.com/peluquerialopezgarcia",
+          ],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+              opens: "09:30",
+              closes: "13:30",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+              opens: "16:00",
+              closes: "19:00",
+            },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "09:00", closes: "19:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "14:00" },
+          ],
+          makesOffer: [
+            "Corte de pelo",
+            "Color y coloración",
+            "Mechas y balayage",
+            "Tratamientos capilares",
+            "Recogidos y peinados",
+            "Peluquería infantil",
+          ].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Peluquería López García",
+          url: `${SITE}/`,
+          inLanguage: "es-ES",
+          publisher: { "@id": `${SITE}/#peluqueria` },
         }),
       },
     ],
@@ -109,9 +210,11 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Inicio", href: "#inicio" },
+  { label: "Historia", href: "#historia" },
   { label: "Servicios", href: "#servicios" },
   { label: "Nuestro trabajo", href: "#trabajo" },
   { label: "Reseñas", href: "#resenas" },
+
   { label: "Cómo llegar", href: "#ubicacion" },
   { label: "Contacto", href: "#contacto" },
 ];
@@ -250,6 +353,11 @@ function Index() {
         </div>
       </section>
 
+      {/* Banner de reseñas de Google */}
+      <ReviewsBanner />
+
+
+
       {/* Sobre nosotros */}
       <section className="mx-auto max-w-6xl px-4 py-20 lg:px-8 lg:py-28">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -298,6 +406,45 @@ function Index() {
           </Reveal>
         </div>
       </section>
+
+      {/* Nuestra historia */}
+      <section id="historia" className="relative overflow-hidden bg-secondary py-20 lg:py-28">
+        <img
+          src={logoMark.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 bottom-0 w-[30rem] max-w-none opacity-[0.05]"
+        />
+        <div className="relative mx-auto max-w-4xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestra historia</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Más de una década en la misma esquina
+            </h2>
+          </Reveal>
+
+          <ol className="mt-12 space-y-0 border-l border-border pl-8 sm:pl-12">
+            {HISTORIA.map((h, i) => (
+              <Reveal key={h.year} delay={i * 90}>
+                <li className="relative pb-12 last:pb-0">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-[2.6rem] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm text-accent-foreground sm:-left-[3.85rem] sm:h-10 sm:w-10 sm:text-base"
+                  >
+                    {h.emoji}
+                  </span>
+                  <p className="font-display text-3xl text-accent sm:text-4xl">{h.year}</p>
+                  <p className="mt-2 font-medium">{h.title}</p>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                    {h.desc}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
 
       {/* Servicios */}
       <section id="servicios" className="bg-secondary py-20 lg:py-28">
