@@ -63,6 +63,38 @@ const APARCAMIENTOS = [
   { name: "Aparcamiento cercano 2", time: "9 min andando (estimado)", href: "https://maps.app.goo.gl/dK2QczcEpwDQpUWBA" },
 ];
 
+const HISTORIA = [
+  {
+    year: "2013",
+    emoji: "📍",
+    title: "Abrimos en Las Delicias",
+    desc:
+      "El 11 de mayo de 2013 levantamos la persiana en la calle Delicias, 17. Dos sillones, muchas ganas y la idea de hacer una peluquería de barrio donde a cada clienta se la atiende por su nombre.",
+  },
+  {
+    year: "2018",
+    emoji: "✂️",
+    title: "Seguimos creciendo junto al barrio",
+    desc:
+      "Cinco años después renovamos el salón y ampliamos servicios: color, mechas y tratamientos con producto profesional Cotril. Nos formamos cada temporada para que las técnicas nuevas también lleguen a Las Delicias.",
+  },
+  {
+    year: "2023",
+    emoji: "❤️",
+    title: "10 años y nuestros clientes siguen confiando en nosotras",
+    desc:
+      "Cumplimos una década con muchas de las personas que entraron por la puerta el primer año. Familias enteras: abuelas, madres, hijas y los peques con su primer corte.",
+  },
+  {
+    year: "2026",
+    emoji: "✨",
+    title: "Más de 13 años cuidando tu cabello",
+    desc:
+      "Hoy seguimos en el mismo sitio, siempre con cita previa para dedicarte todo el tiempo que necesitas, y con la misma idea del primer día: que salgas por la puerta contenta con tu pelo.",
+  },
+];
+
+
 
 export const Route = createFileRoute("/")({
   component: Index,
