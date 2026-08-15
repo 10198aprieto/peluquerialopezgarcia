@@ -299,6 +299,45 @@ function Index() {
         </div>
       </section>
 
+      {/* Nuestra historia */}
+      <section id="historia" className="relative overflow-hidden bg-secondary py-20 lg:py-28">
+        <img
+          src={logoMark.url}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-24 bottom-0 w-[30rem] max-w-none opacity-[0.05]"
+        />
+        <div className="relative mx-auto max-w-4xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Nuestra historia</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Más de una década en la misma esquina
+            </h2>
+          </Reveal>
+
+          <ol className="mt-12 space-y-0 border-l border-border pl-8 sm:pl-12">
+            {HISTORIA.map((h, i) => (
+              <Reveal key={h.year} delay={i * 90}>
+                <li className="relative pb-12 last:pb-0">
+                  <span
+                    aria-hidden="true"
+                    className="absolute -left-[2.6rem] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-accent text-sm text-accent-foreground sm:-left-[3.85rem] sm:h-10 sm:w-10 sm:text-base"
+                  >
+                    {h.emoji}
+                  </span>
+                  <p className="font-display text-3xl text-accent sm:text-4xl">{h.year}</p>
+                  <p className="mt-2 font-medium">{h.title}</p>
+                  <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+                    {h.desc}
+                  </p>
+                </li>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+
       {/* Servicios */}
       <section id="servicios" className="bg-secondary py-20 lg:py-28">
         <div className="mx-auto max-w-6xl px-4 lg:px-8">
