@@ -204,7 +204,21 @@ export const Route = createFileRoute("/")({
           publisher: { "@id": `${SITE}/#peluqueria` },
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "@id": `${SITE}/#faq`,
+          mainEntity: FAQ.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }),
+      },
     ],
+
   }),
 });
 
@@ -227,6 +241,39 @@ const SERVICIOS = [
   { icon: Crown, name: "Recogidos y eventos", desc: "Peinados para bodas, comuniones y celebraciones, con o sin prueba previa." },
   { icon: Baby, name: "Peluquería infantil", desc: "Primeros cortes tranquilos y con paciencia. Los peques, encantados." },
 ];
+
+const FAQ = [
+  {
+    q: "¿Dónde está Peluquería López García?",
+    a: "En la calle Delicias, 17, 47013 Valladolid, en pleno barrio de Las Delicias. Hay parada de autobús urbano en la misma calle y varios aparcamientos a 9-11 minutos andando.",
+  },
+  {
+    q: "¿Cuál es el horario de la peluquería?",
+    a: "Lunes cerrado. De martes a jueves, de 9:30 a 13:30 y de 16:00 a 19:00. Viernes de 9:00 a 19:00. Sábado de 9:00 a 14:00. Domingo cerrado.",
+  },
+  {
+    q: "¿Hay que pedir cita previa?",
+    a: "Sí, atendemos siempre con cita previa para dedicarte todo el tiempo que necesitas. Puedes pedir cita llamando al 983 08 27 85 o por WhatsApp.",
+  },
+  {
+    q: "¿Qué servicios ofrecéis?",
+    a: "Corte y peinado de mujer y hombre, color y mechas (balayage, babylights, retoque de raíz), tratamientos capilares, alisados y ondas, recogidos para eventos y peluquería infantil.",
+  },
+  {
+    q: "¿Con qué productos trabajáis?",
+    a: "Trabajamos con producto profesional Cotril tanto en color como en tratamientos capilares.",
+  },
+  {
+    q: "¿Desde cuándo estáis abiertos?",
+    a: "Desde el 11 de mayo de 2013. Llevamos más de 13 años en la misma dirección del barrio de Las Delicias.",
+  },
+  {
+    q: "¿Cuánto cuestan los servicios?",
+    a: "Los precios dependen del largo del pelo y de la técnica. Consúltanos por teléfono o WhatsApp y te damos un presupuesto sin compromiso.",
+  },
+];
+
+
 
 const HORARIO = [
   ["Lunes", "Cerrado"],
@@ -609,6 +656,30 @@ function Index() {
         </div>
 
       </section>
+
+      {/* Preguntas frecuentes */}
+      <section id="faq" className="bg-secondary py-20 lg:py-28">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8">
+          <Reveal className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.3em] text-accent">Preguntas frecuentes</p>
+            <h2 className="mt-4 font-display text-3xl leading-tight sm:text-5xl">
+              Todo lo que sueles preguntarnos
+            </h2>
+          </Reveal>
+          <dl className="mt-10 divide-y divide-border border-y border-border">
+            {FAQ.map((f, i) => (
+              <Reveal key={f.q} delay={i * 50}>
+                <div className="py-6">
+                  <dt className="font-display text-xl leading-snug">{f.q}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.a}</dd>
+                </div>
+              </Reveal>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+
 
       {/* Contacto / Footer */}
       <footer id="contacto" className="relative overflow-hidden bg-primary py-20 text-primary-foreground lg:py-24">
