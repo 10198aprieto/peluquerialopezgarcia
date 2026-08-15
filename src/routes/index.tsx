@@ -97,6 +97,8 @@ const HISTORIA = [
 
 
 
+const SITE = "https://peluquerialopezgarcia.lovable.app";
+
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
@@ -105,8 +107,15 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Peluquería de familia en Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con trato cercano. Pide cita por teléfono o WhatsApp. Calle Delicias 17.",
+          "Peluquería en el barrio de Las Delicias, Valladolid. Corte, color, mechas, tratamientos y recogidos con producto Cotril y trato cercano. Cita previa en el 983 08 27 85. Calle Delicias 17.",
       },
+      { name: "keywords", content: "peluquería Valladolid, peluquería Las Delicias, mechas Valladolid, color, corte de pelo, Cotril" },
+      { name: "geo.region", content: "ES-VA" },
+      { name: "geo.placename", content: "Valladolid" },
+      { name: "geo.position", content: "41.630;-4.734" },
+      { name: "ICBM", content: "41.630, -4.734" },
+      { property: "og:site_name", content: "Peluquería López García" },
+      { property: "og:locale", content: "es_ES" },
       { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
       {
         property: "og:description",
@@ -114,26 +123,85 @@ export const Route = createFileRoute("/")({
           "Corte, color, mechas y tratamientos en el barrio de Las Delicias. Peluquería de familia, para tu familia. Calle Delicias 17, Valladolid.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: `${SITE}/` },
+      { property: "og:image", content: `${SITE}/images/sala.jpg` },
+      { property: "og:image:alt", content: "Interior de Peluquería López García en Las Delicias, Valladolid" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Peluquería López García - Las Delicias, Valladolid" },
+      {
+        name: "twitter:description",
+        content: "Peluquería de familia en Las Delicias, Valladolid. Cita previa en el 983 08 27 85.",
+      },
+      { name: "twitter:image", content: `${SITE}/images/sala.jpg` },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: `${SITE}/` }],
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "HairSalon",
+          "@id": `${SITE}/#peluqueria`,
           name: "Peluquería López García",
+          description:
+            "Peluquería de barrio en Las Delicias (Valladolid) desde 2013. Corte, color, mechas, tratamientos y recogidos con producto profesional Cotril, siempre con cita previa.",
+          url: `${SITE}/`,
           telephone: "+34983082785",
+          image: [`${SITE}/images/sala.jpg`, `${SITE}/images/recepcion.jpg`],
+          logo: `${SITE}/images/logo-text.png`,
+          priceRange: "€€",
+          currenciesAccepted: "EUR",
+          foundingDate: "2013-05-11",
+          areaServed: { "@type": "City", name: "Valladolid" },
           address: {
             "@type": "PostalAddress",
             streetAddress: "Calle Delicias, 17",
             postalCode: "47013",
             addressLocality: "Valladolid",
+            addressRegion: "Valladolid",
             addressCountry: "ES",
           },
-          openingHours: ["Tu-Th 09:30-13:30", "Tu-Th 16:00-19:00", "Fr 09:00-19:00", "Sa 09:00-14:00"],
+          geo: { "@type": "GeoCoordinates", latitude: 41.63, longitude: -4.734 },
+          hasMap: MAPS_DEST,
+          sameAs: [
+            "https://www.instagram.com/peluquerialopezgarcia/",
+            "https://www.facebook.com/peluquerialopezgarcia",
+          ],
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+              opens: "09:30",
+              closes: "13:30",
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Tuesday", "Wednesday", "Thursday"],
+              opens: "16:00",
+              closes: "19:00",
+            },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "09:00", closes: "19:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "09:00", closes: "14:00" },
+          ],
+          makesOffer: [
+            "Corte de pelo",
+            "Color y coloración",
+            "Mechas y balayage",
+            "Tratamientos capilares",
+            "Recogidos y peinados",
+            "Peluquería infantil",
+          ].map((n) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: n } })),
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "Peluquería López García",
+          url: `${SITE}/`,
+          inLanguage: "es-ES",
+          publisher: { "@id": `${SITE}/#peluqueria` },
         }),
       },
     ],
@@ -142,9 +210,11 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Inicio", href: "#inicio" },
+  { label: "Historia", href: "#historia" },
   { label: "Servicios", href: "#servicios" },
   { label: "Nuestro trabajo", href: "#trabajo" },
   { label: "Reseñas", href: "#resenas" },
+
   { label: "Cómo llegar", href: "#ubicacion" },
   { label: "Contacto", href: "#contacto" },
 ];
