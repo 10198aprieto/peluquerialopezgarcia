@@ -19,6 +19,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
+import { ReviewsBanner } from "@/components/ReviewsBanner";
 
 import { Link } from "@tanstack/react-router";
 
