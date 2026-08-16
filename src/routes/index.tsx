@@ -204,20 +204,8 @@ export const Route = createFileRoute("/")({
           publisher: { "@id": `${SITE}/#peluqueria` },
         }),
       },
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "@id": `${SITE}/#faq`,
-          mainEntity: FAQ.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        }),
-      },
     ],
+
 
   }),
 });
@@ -230,6 +218,7 @@ const NAV = [
   { label: "Reseñas", href: "#resenas" },
 
   { label: "Cómo llegar", href: "#ubicacion" },
+  { label: "FAQ", href: "#faq" },
   { label: "Contacto", href: "#contacto" },
 ];
 
