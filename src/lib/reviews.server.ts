@@ -1,20 +1,8 @@
 const PLACE_ID = "ChIJwVs47UQTRw0R0W45OBCWnaQ";
 const FIELDS = "rating,userRatingCount,reviews,googleMapsUri";
 
-export interface GoogleReview {
-  author: string;
-  photo: string | null;
-  rating: number;
-  text: string;
-  when: string;
-}
-
-export interface ReviewsPayload {
-  rating: number | null;
-  total: number;
-  mapsUri: string | null;
-  reviews: GoogleReview[];
-}
+import type { GoogleReview, ReviewsPayload } from "./reviews.types";
+export type { GoogleReview, ReviewsPayload };
 
 interface PlacesResponse {
   rating?: number;
