@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { Star, Quote } from "lucide-react";
 import { getGoogleReviews, type ReviewsPayload } from "@/lib/reviews.functions";
+import { FALLBACK_REVIEWS } from "@/lib/reviews.fallback";
 
 export function ReviewsBanner() {
-  const [data, setData] = useState<ReviewsPayload | null>(null);
+  const [data, setData] = useState<ReviewsPayload>(FALLBACK_REVIEWS);
 
   useEffect(() => {
     let active = true;
     getGoogleReviews()
-      .then((d) => active && setData(d))
+      .then((d) => active && d.reviews.length && setData(d))
       .catch(() => {});
     return () => {
       active = false;

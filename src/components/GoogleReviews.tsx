@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 import { getGoogleReviews, type ReviewsPayload } from "@/lib/reviews.functions";
+import { FALLBACK_REVIEWS } from "@/lib/reviews.fallback";
 import { Reveal } from "@/components/Reveal";
 
 function Stars({ rating, className = "" }: { rating: number; className?: string }) {
@@ -24,8 +25,8 @@ export function GoogleReviews() {
   useEffect(() => {
     let active = true;
     getGoogleReviews()
-      .then((d) => active && setData(d))
-      .catch(() => active && setFailed(true));
+      .then((d) => active && setData(d.reviews.length ? d : FALLBACK_REVIEWS))
+      .catch(() => active && setData(FALLBACK_REVIEWS));
     return () => {
       active = false;
     };
