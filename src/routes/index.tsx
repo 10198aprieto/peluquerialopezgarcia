@@ -742,6 +742,40 @@ function Index() {
               </div>
             </div>
           </div>
+          <div className="mt-12 border-t border-primary-foreground/15 pt-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-primary-foreground/60">
+              Formas de pago
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              {[
+                { src: "/images/pay/visa.svg", alt: "Visa" },
+                { src: "/images/pay/mastercard.svg", alt: "Mastercard" },
+                { src: "/images/pay/google-pay.svg", alt: "Google Pay" },
+                { src: "/images/pay/apple-pay.svg", alt: "Apple Pay" },
+                { src: "/images/pay/samsung-pay.png", alt: "Samsung Pay" },
+              ].map((logo) => (
+                <span
+                  key={logo.alt}
+                  className="inline-flex h-11 w-[4.5rem] items-center justify-center rounded-lg bg-background px-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="max-h-6 w-auto max-w-full object-contain"
+                  />
+                </span>
+              ))}
+              <span className="inline-flex h-11 items-center rounded-lg border border-primary-foreground/30 px-4 text-sm text-primary-foreground/80">
+                Efectivo
+              </span>
+            </div>
+            <p className="mt-4 text-sm text-primary-foreground/60">
+              Aceptamos tarjeta de crédito y débito (Visa y Mastercard), Google Pay, Apple Pay,
+              Samsung Pay y efectivo.
+            </p>
+          </div>
+
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-primary-foreground/50">
             <p>
               © {new Date().getFullYear()} Peluquería López García · Las Delicias, Valladolid
