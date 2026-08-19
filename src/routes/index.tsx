@@ -797,12 +797,18 @@ function Index() {
             </Link>
             <button
               type="button"
-              onClick={() => openCookiePreferences()}
+              onClick={() => {
+                const iub = (
+                  window as unknown as {
+                    _iub?: { cs?: { api?: { openPreferences?: () => void } } };
+                  }
+                )._iub;
+                iub?.cs?.api?.openPreferences?.();
+              }}
               className="underline transition-colors hover:text-primary-foreground"
             >
               Preferencias de cookies
             </button>
-
           </div>
 
         </div>
