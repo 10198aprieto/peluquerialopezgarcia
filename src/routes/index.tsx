@@ -242,7 +242,7 @@ const FAQ = [
   },
   {
     q: "¿Hay que pedir cita previa?",
-    a: "Sí, atendemos siempre con cita previa para dedicarte todo el tiempo que necesitas. Puedes pedir cita llamando al 983 08 27 85 o por WhatsApp.",
+    a: "Sí, atendemos siempre con cita previa para dedicarte todo el tiempo que necesitas. Puedes pedir cita llamando al 983 08 27 85.",
   },
   {
     q: "¿Qué servicios ofrecéis?",
@@ -258,7 +258,7 @@ const FAQ = [
   },
   {
     q: "¿Cuánto cuestan los servicios?",
-    a: "Los precios dependen del largo del pelo y de la técnica. Consúltanos por teléfono o WhatsApp y te damos un presupuesto sin compromiso.",
+    a: "Consúltanos por teléfono y te damos un presupuesto sin compromiso.",
   },
 ];
 
