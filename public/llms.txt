@@ -7,13 +7,13 @@
 - Tipo: Peluquería / salón de belleza (HairSalon)
 - Dirección: Calle Delicias, 17, 47013 Valladolid, España (barrio de Las Delicias)
 - Teléfono: +34 983 08 27 85
-- WhatsApp: https://wa.me/34983082785
+- Cita previa: por teléfono
 - Web: https://peluquerialopezgarcia.lovable.app/
 - Instagram: https://www.instagram.com/peluquerialopezgarcia/
 - Facebook: https://www.facebook.com/peluquerialopezgarcia
 - Idioma: español (es-ES)
 - Abierta desde: 11 de mayo de 2013
-- Cita previa: obligatoria (por teléfono o WhatsApp)
+- Cita previa: obligatoria (por teléfono)
 - Productos: Cotril (color y tratamientos)
 
 ## Horario
@@ -30,7 +30,7 @@
 - Alisados y ondas: alisado progresivo, permanente moderna
 - Recogidos y peinados para bodas, comuniones y eventos
 - Peluquería infantil
-- Precios: según largo y técnica; consultar por teléfono o WhatsApp
+- Precios: según largo y técnica; consultar por teléfono
 
 ## Cómo llegar
 - Autobús urbano con parada en la calle Delicias
