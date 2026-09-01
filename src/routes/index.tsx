@@ -783,62 +783,14 @@ function Index() {
       </footer>
 
       {/* Botón flotante de contacto */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {fab && (
-            <motion.div
-              key="fab-options"
-              initial={{ opacity: 0, y: 12, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.9 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="flex flex-col items-end gap-3"
-            >
-              <motion.a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setFab(false)}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 16 }}
-                transition={{ duration: 0.2, delay: 0.04 }}
-                className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
-              >
-                <MessageCircle className="h-5 w-5 text-accent" /> Enviar WhatsApp
-              </motion.a>
-              <motion.a
-                href={`tel:${PHONE}`}
-                onClick={() => setFab(false)}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 16 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
-              >
-                <Phone className="h-5 w-5 text-accent" /> Llamar por teléfono
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <motion.button
-          onClick={() => setFab((v) => !v)}
-          aria-expanded={fab}
-          aria-label={fab ? "Cerrar opciones de contacto" : "Abrir opciones de contacto"}
-          whileTap={{ scale: 0.92 }}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
-        >
-          <motion.span
-            key={fab ? "close" : "open"}
-            initial={{ rotate: -90, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center justify-center"
-          >
-            {fab ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-          </motion.span>
-        </motion.button>
-      </div>
+      <motion.a
+        href={`tel:${PHONE}`}
+        aria-label="Llamar por teléfono"
+        whileTap={{ scale: 0.92 }}
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
+      >
+        <Phone className="h-6 w-6" />
+      </motion.a>
 
 
     </div>
