@@ -13,10 +13,9 @@ import {
   Facebook,
   Menu,
   X,
-  MessageCircle,
   Phone,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ReviewsBanner } from "@/components/ReviewsBanner";
@@ -30,9 +29,6 @@ const recepcion = { url: "/images/recepcion.jpg" };
 const lavado = { url: "/images/lavado.jpg" };
 
 const PHONE = "+34983082785";
-const WHATSAPP =
-  "https://wa.me/34983082785?text=" +
-  encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid&travelmode=driving";
 const MAPS_DEST =
@@ -280,7 +276,7 @@ const TRABAJOS = [
 
 function Index() {
   const [open, setOpen] = useState(false);
-  const [fab, setFab] = useState(false);
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -301,9 +297,7 @@ function Index() {
               </a>
             ))}
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+              href={`tel:${PHONE}`}
               className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
             >
               Pedir cita
@@ -330,9 +324,7 @@ function Index() {
               </a>
             ))}
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+              href={`tel:${PHONE}`}
               className="mt-3 block w-full rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
             >
               Pedir cita
@@ -371,18 +363,16 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
+                href={`tel:${PHONE}`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
               >
-                <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+                <Phone className="h-4 w-4" /> Pedir cita por teléfono
               </a>
               <a
-                href={`tel:${PHONE}`}
+                href="#servicios"
                 className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
-                <Phone className="h-4 w-4" /> 983 08 27 85
+                Ver servicios
               </a>
             </div>
           </Reveal>
@@ -685,12 +675,10 @@ function Index() {
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
+                href={`tel:${PHONE}`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
               >
-                <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+                <Phone className="h-4 w-4" /> Pedir cita por teléfono
               </a>
               <a
                 href={`tel:${PHONE}`}
@@ -795,62 +783,14 @@ function Index() {
       </footer>
 
       {/* Botón flotante de contacto */}
-      <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
-        <AnimatePresence>
-          {fab && (
-            <motion.div
-              key="fab-options"
-              initial={{ opacity: 0, y: 12, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.9 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              className="flex flex-col items-end gap-3"
-            >
-              <motion.a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => setFab(false)}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 16 }}
-                transition={{ duration: 0.2, delay: 0.04 }}
-                className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
-              >
-                <MessageCircle className="h-5 w-5 text-accent" /> Enviar WhatsApp
-              </motion.a>
-              <motion.a
-                href={`tel:${PHONE}`}
-                onClick={() => setFab(false)}
-                initial={{ opacity: 0, x: 16 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 16 }}
-                transition={{ duration: 0.2 }}
-                className="flex items-center gap-3 rounded-full bg-card px-4 py-3 text-sm font-medium shadow-[var(--shadow-soft)] ring-1 ring-border"
-              >
-                <Phone className="h-5 w-5 text-accent" /> Llamar por teléfono
-              </motion.a>
-            </motion.div>
-          )}
-        </AnimatePresence>
-        <motion.button
-          onClick={() => setFab((v) => !v)}
-          aria-expanded={fab}
-          aria-label={fab ? "Cerrar opciones de contacto" : "Abrir opciones de contacto"}
-          whileTap={{ scale: 0.92 }}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
-        >
-          <motion.span
-            key={fab ? "close" : "open"}
-            initial={{ rotate: -90, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="flex items-center justify-center"
-          >
-            {fab ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-          </motion.span>
-        </motion.button>
-      </div>
+      <motion.a
+        href={`tel:${PHONE}`}
+        aria-label="Llamar por teléfono"
+        whileTap={{ scale: 0.92 }}
+        className="fixed bottom-5 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-[var(--shadow-soft)]"
+      >
+        <Phone className="h-6 w-6" />
+      </motion.a>
 
 
     </div>
