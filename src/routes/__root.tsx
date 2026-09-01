@@ -77,14 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      {
+        name: "google-site-verification",
+        content: "iZQi4QY0OCJ4ObJRCKVKq2EsHl15T-KBTNXM2A369W0",
+      },
+      { title: "Peluquería López García - Las Delicias, Valladolid" },
+      {
+        name: "description",
+        content:
+          "Peluquería de barrio en Las Delicias, Valladolid. Cortes, color, mechas y tratamientos Cotril. Siempre con cita previa: 983 08 27 85.",
+      },
+      { property: "og:title", content: "Peluquería López García - Las Delicias, Valladolid" },
+      {
+        property: "og:description",
+        content:
+          "Peluquería de barrio en Las Delicias, Valladolid. Cortes, color, mechas y tratamientos Cotril. Siempre con cita previa.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
