@@ -15,7 +15,7 @@ import {
   X,
   Phone,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
 import { GoogleReviews } from "@/components/GoogleReviews";
 import { ReviewsBanner } from "@/components/ReviewsBanner";
@@ -276,7 +276,7 @@ const TRABAJOS = [
 
 function Index() {
   const [open, setOpen] = useState(false);
-  const [fab, setFab] = useState(false);
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground">
