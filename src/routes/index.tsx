@@ -13,7 +13,6 @@ import {
   Facebook,
   Menu,
   X,
-  MessageCircle,
   Phone,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,9 +29,6 @@ const recepcion = { url: "/images/recepcion.jpg" };
 const lavado = { url: "/images/lavado.jpg" };
 
 const PHONE = "+34983082785";
-const WHATSAPP =
-  "https://wa.me/34983082785?text=" +
-  encodeURIComponent("Hola, quiero pedir cita en Peluquería López García");
 const MAPS =
   "https://www.google.com/maps/dir/?api=1&destination=Peluquer%C3%ADa+L%C3%B3pez+Garc%C3%ADa%2C+Calle+Delicias+17%2C+Valladolid&travelmode=driving";
 const MAPS_DEST =
@@ -301,9 +297,7 @@ function Index() {
               </a>
             ))}
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+              href={`tel:${PHONE}`}
               className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium tracking-wide text-accent-foreground transition-opacity hover:opacity-90"
             >
               Pedir cita
@@ -330,9 +324,7 @@ function Index() {
               </a>
             ))}
             <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
+              href={`tel:${PHONE}`}
               className="mt-3 block w-full rounded-full bg-accent px-5 py-3 text-center font-medium text-accent-foreground"
             >
               Pedir cita
@@ -371,18 +363,16 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
+                href={`tel:${PHONE}`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground shadow-[var(--shadow-soft)] transition-opacity hover:opacity-90"
               >
-                <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+                <Phone className="h-4 w-4" /> Pedir cita por teléfono
               </a>
               <a
-                href={`tel:${PHONE}`}
+                href="#servicios"
                 className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/40 px-7 py-3.5 font-medium text-primary-foreground transition-colors hover:bg-primary-foreground/10"
               >
-                <Phone className="h-4 w-4" /> 983 08 27 85
+                Ver servicios
               </a>
             </div>
           </Reveal>
@@ -685,12 +675,10 @@ function Index() {
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
+                href={`tel:${PHONE}`}
                 className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 font-medium text-accent-foreground transition-opacity hover:opacity-90"
               >
-                <MessageCircle className="h-4 w-4" /> Pedir cita por WhatsApp
+                <Phone className="h-4 w-4" /> Pedir cita por teléfono
               </a>
               <a
                 href={`tel:${PHONE}`}
