@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         name: "google-site-verification",
-        content: "iZQi4QY0OCJ4ObJRCKVKq2EsHl15T-KBTNXM2A369W0",
+        content: "E906WU4jzIgTt1I14gHYAu_L3-FhdemEcHvtTXE8d-4",
       },
       { title: "Peluquería López García - Las Delicias, Valladolid" },
       {
